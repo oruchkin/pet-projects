@@ -1,0 +1,37 @@
+{% extends "baseapp/layout.html" %}
+      
+{% block title %}
+Insurance hospital Data
+{% endblock %}
+
+{% block body %}
+
+<h3 class="mt-5">hospitals!</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Logo</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for each_hospital in all_hospitals_key %}
+    <tr>
+      <th scope="row">{{ each_hospital.hospital_id }}</th>
+      <td><img src="{{ each_hospital.logo.url }}" width="150" class="img-fluid"></td>
+      <td>{{ each_hospital.name }}</td>
+      <td>{{ each_hospital.category }}</td>
+      <td>{{ each_hospital.address }}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
+
+<img src="{{ each_hospital.logo.url }}">
