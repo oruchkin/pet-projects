@@ -1,0 +1,29 @@
+{% extends "baseapp/layout.html" %}
+      
+{% block title %}
+Patients details
+{% endblock %}
+
+{% block body %}
+
+    <h3>Patients details</h3>
+    
+    {% for one_patient in  get_one_patient_key %}
+    <div class="mt-4" >
+        <img src="{{ one_patient.profileimage.url }}"  class="img-fluid"  alt="image" width="150" height="150">
+        <div class="card-body">
+            <h5 class="card-title">Patient Id {{ one_patient.patient_id }}</h5>
+            <p class="card-text">{{ one_patient.first_name }} {{ one_patient.last_name }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Date birth:{{ one_patient.dateofbirth }}</li>
+            <li class="list-group-item">gender: {{ one_patient.gender }}</li>
+            <li class="list-group-item">Email: {{ one_patient.email }}</li>
+            <li class="list-group-item">Address: {{ one_patient.address }}</li>
+        </ul>               
+    </div>
+    <hr>
+    {% endfor %}
+    <p class="lead text-muted"><a href="{% url 'patients' %}">back</a></p>
+
+{% endblock %}
