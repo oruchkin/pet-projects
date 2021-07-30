@@ -1,0 +1,29 @@
+{% extends "baseapp/layout.html" %}
+      
+{% block title %}
+Insurance Company Data
+{% endblock %}
+
+{% block body %}
+
+    <h3>Insurance Company Data:</h3>
+
+    {% for i in all_company_data_key %}
+        
+    
+
+    <div class="card text-center">
+        <div class="card-header">
+            {{ i.insurance_company_id }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ i.company_name }}</h5>
+            <p class="card-text">{{ i.details }}</p>
+        </div>
+
+    </div>
+    {% endfor %}
+   
+
+
+{% endblock %}
