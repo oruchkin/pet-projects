@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from hospital.models import Hospital
 from patient.models import Patient
 from django.db.models import Q
+from django.db.models import Avg, Max
 
 # Create your views here.
 
@@ -22,6 +23,9 @@ def all_model_quiries(request):
 
     patients_nth_record = Patient.objects.order_by("dateofbirth")[1]
 
+    patient_avg_age = Patient.objects.all().aggregate(Avg('age'),Max('age'))
+
+    patient_count = Patient.objects.all().count
 
     context = {
 
@@ -35,8 +39,16 @@ def all_model_quiries(request):
         "original_query3": "Patient.objects.exclude(first_name__istartswith='j')",
         
         "patients_nth_record": patients_nth_record,
-        "original_query4": "Patient.objects.order_by('dateofbirth')[1]"
-    }
+        "original_query4": "Patient.objects.order_by('dateofbirth')[1]",
 
+        "patient_avg_age": patient_avg_age,
+        "original_query5": "Patient.objects.all().aggregate(Avg('age'),Max('age'))",
+
+        "patient_count": patient_count,
+        "original_query6": "Patient.objects.all().count",
+
+    }
+    #functions
+    #all() #filter() # exclude() # get() #aggregate() #order_by() #count()
     return render(request,"baseapp/modelQueries.html",context)
 

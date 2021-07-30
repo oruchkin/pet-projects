@@ -3,10 +3,10 @@ from . models import Hospital_Type, Hospital
 
 # Register your models here.
 
-
-#admin.site.register(Hospital)
-admin.site.register(Hospital_Type)
-
+# django custom admin screens
+admin.site.site_header = "HIC Admin"
+admin.site.site_title = "HIC Admin Portal"
+admin.site.index_title = "Welcome to Hospital Insurance Claims"
 
 
 class HospitalAdmin(admin.ModelAdmin):
@@ -16,4 +16,6 @@ class HospitalAdmin(admin.ModelAdmin):
         "slug":('name',)
     }
 
+
+admin.site.register(Hospital_Type)
 admin.site.register(Hospital, HospitalAdmin)

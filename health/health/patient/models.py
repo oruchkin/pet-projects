@@ -24,4 +24,7 @@ class Patient(models.Model):
     
     def __str__(self):
         return f"Name {self.first_name} - surname {self.last_name} - birthday: {self.dateofbirth}"
+
+    class Meta:
+        verbose_name_plural = "Patients Info"
  
