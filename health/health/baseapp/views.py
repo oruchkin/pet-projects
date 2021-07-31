@@ -5,7 +5,7 @@ from patient.models import Patient
 from django.db.models import Q
 from django.db.models import Avg, Max
 
-from .forms import ContactForm
+from .forms import ContactForm, ContactModelForm
 
 # Create your views here.
 
@@ -75,4 +75,20 @@ def contactView(request):
     return render(request, "baseapp/contact.html", {
         "form": form,
     })
+
+
+def ContactModelFormView(request):
+    if request.method=="POST":
+        form = ContactModelForm(request.POST)
+        if form.is_valid():
+            #save the data into database table.
+            form.save()
+            return HttpResponse('Your data is submited')
+
+    else:
+        form = ContactModelForm()
+
+        return render(request, 'baseapp/contactus.html',{
+            'form_key': form
+        })
 

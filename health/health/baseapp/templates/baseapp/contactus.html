@@ -1,0 +1,18 @@
+{% extends "baseapp/layout.html" %}
+{% load static %}
+      
+{% block title %}
+Contact us
+{% endblock %}
+
+{% block body %}
+<h1 class="mt-4">Contacts us</h1>
+
+<form  method="POST" class="mt-4">
+    {% csrf_token %}
+    {{ form_key.as_p }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <input type="reset" value="clear" class="btn btn-primary">
+</form>
+
+{% endblock %}
