@@ -5,6 +5,8 @@ from patient.models import Patient
 from django.db.models import Q
 from django.db.models import Avg, Max
 
+from .forms import ContactForm
+
 # Create your views here.
 
 def index(request):
@@ -51,4 +53,26 @@ def all_model_quiries(request):
     #functions
     #all() #filter() # exclude() # get() #aggregate() #order_by() #count()
     return render(request,"baseapp/modelQueries.html",context)
+
+
+def contactView(request):
+
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponse('Your data is submited')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ContactForm()
+
+    return render(request, "baseapp/contact.html", {
+        "form": form,
+    })
 

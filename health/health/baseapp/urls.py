@@ -5,6 +5,7 @@ urlpatterns = [
     
     path('', views.index, name="index"),
     path('all_queries/', views.all_model_quiries, name="allqueries"),
+    path('contact/', views.contactView, name="contact"),
 ]
 
 
