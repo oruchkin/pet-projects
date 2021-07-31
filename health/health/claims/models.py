@@ -11,7 +11,8 @@ class ClaimStatus(models.Model):
     claim_status_code = models.CharField(max_length = 8)
     status_description = models.TextField()
     
-
+    def __str__(self):
+       return self.claim_status_code
 
 class Claim(models.Model):
     claim_number = models.IntegerField(primary_key=True)
@@ -22,7 +23,5 @@ class Claim(models.Model):
     details = models.TextField()
     update_date = models.DateField()
 
-
-    #def __str__(self):
-    #   return 
-
+    def __str__(self):
+       return f"{self.claim_number}"
