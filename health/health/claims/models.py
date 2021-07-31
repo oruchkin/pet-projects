@@ -16,9 +16,9 @@ class ClaimStatus(models.Model):
 class Claim(models.Model):
     claim_number = models.IntegerField(primary_key=True)
     claim_status = models.ForeignKey('ClaimStatus', on_delete=models.CASCADE)
-    hospital_id = models.ForeignKey('Hospital', on_delete=models.CASCADE)
-    patient_id = models.ForeignKey('Patient', on_delete=models.CASCADE)
-    insurance_company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
+    hospital_id = models.ForeignKey('hospital.Hospital', on_delete=models.CASCADE)
+    patient_id = models.ForeignKey('patient.Patient', on_delete=models.CASCADE)
+    insurance_company_id = models.ForeignKey('insurancecompany.Company', on_delete=models.CASCADE)
     details = models.TextField()
     update_date = models.DateField()
 
