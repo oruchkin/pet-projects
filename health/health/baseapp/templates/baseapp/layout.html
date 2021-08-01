@@ -7,7 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="{% static 'bootstrap-5.0.2/css/bootstrap.css' %}">
@@ -36,24 +38,31 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'patients' %}">Patients</a>
               </li>
+  
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'allqueries' %}">Model queries</a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'insurancecompany' %}">Insurance Companies</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'insurancecompany' %}">Companies</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">admin panel</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'AllClaimsData' %}">All claims</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contacts</a>
-              </li>          
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'contactus' %}">Contacts us</a>
-              </li> 
+                <a class="nav-link active" aria-current="page" href="{% url 'signup_view' %}">Register</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Others
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'contact' %}">Contacts</a>
+                  <a class="dropdown-item" href="{% url 'contactus' %}">Contacts us</a>
+                  <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Menu</a>
+                  <a class="dropdown-item" href="{% url 'allqueries' %}">All queries</a>
+                  
+                </div>
+              </li>
+        
+
             </ul>
 
           </div>
