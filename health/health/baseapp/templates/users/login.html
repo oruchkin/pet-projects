@@ -1,0 +1,17 @@
+{% extends "baseapp/layout.html" %}
+{% load static %}
+      
+{% block title %}
+Registration
+{% endblock %}
+
+{% block body %}
+<h1>Login:</h1>
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {{ form_key.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
